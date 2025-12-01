@@ -1,18 +1,15 @@
-
-import './App.css'
-import './componenets/Navbar'
-import Navbar from './componenets/Navbar'
-import Student from './componenets/Student'
+import { BrowserRouter } from "react-router-dom";
+import "./App.css";
+import App2 from "./componenets/App2";
 
 function App() {
-
-
   return (
     <>
-       <Navbar />
-       <Student />
+      <BrowserRouter>
+        <App2 />
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

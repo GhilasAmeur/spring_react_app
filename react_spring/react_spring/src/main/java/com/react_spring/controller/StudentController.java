@@ -9,9 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+
+
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/student")
-@CrossOrigin
+
 public class StudentController {
 
     private final StudentServiceImpl studentServiceImpl;
@@ -40,6 +43,11 @@ public class StudentController {
         this.studentServiceImpl.deleteById(id);
         return  ResponseEntity.ok().build();
 
+    }
+
+    @GetMapping("/getById/{id}")
+    public ResponseEntity<Student> getStudentById(@PathVariable Long id){
+        return new ResponseEntity<>(this.studentServiceImpl.getStudentById(id), HttpStatus.OK);
     }
 
 }

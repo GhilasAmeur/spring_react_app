@@ -35,35 +35,27 @@ public StudentServiceImpl(StudentRepository studentRepository){
    Optional<Student> st = this.studentRepository.findById(id);
 
    if(st.isPresent()){
-
        Student studentToUpdate = st.get();
-
        if(student.getNom() != null && !student.getNom().isEmpty()){
            studentToUpdate.setNom(student.getNom());
-
        }
        if(student.getPrenom() != null && !student.getPrenom().isEmpty()){
            studentToUpdate.setPrenom(student.getPrenom());
-
        }
        if(student.getEmail() != null && !student.getEmail().isEmpty()){
            studentToUpdate.setEmail(student.getEmail());
-
        }
-
        this.studentRepository.save(studentToUpdate);
 
-
-
-       return  studentToUpdate;
-
-
-
+        return  studentToUpdate;
    }
-
-
         return  null;
 
+    }
+
+    @Override
+    public Student getStudentById(Long id) {
+        return this.studentRepository.findById(id).get();
     }
 
     public void deleteById(Long id){
