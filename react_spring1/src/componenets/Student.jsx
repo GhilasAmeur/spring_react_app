@@ -29,6 +29,7 @@ const Student = () => {
       return;
     }
     // const student = { email,nom,prenom}
+    ///test ghilas ameur
 
     fetch("http://localhost:8080/student/add", {
       method: "POST",
